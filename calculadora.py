@@ -1,4 +1,4 @@
-# Calculadora Versión 1.0
+# Calculadora Versión 1.1
 
 # Inicio: 20 de Diciembre 2025
 # Fin: 
@@ -37,11 +37,8 @@ def dividir(a,b):
     Arroja error si el divisor es igual a 0 (b = 0)
     (float, float) --> float
     """
-    
-    if b == 0:
-        return "No es posible dividir por 0"
-    else: 
-        return a/b 
+
+    return a/b 
 
 def get_op(x):
     """
@@ -55,6 +52,19 @@ def get_op(x):
     else:
         return "nini"
 
+def strip_inter(x):
+    """
+    Función que actúa como .strip pero también remueve los espacios
+    intermedios
+    (str) --> str 
+    """
+
+    resultado = ""
+    for i in x:
+        if i != " ":
+            resultado += i
+    return resultado
+
 def get_nums(x):
     """
     Función que ayuda a identificar los números
@@ -67,7 +77,7 @@ def get_nums(x):
         return "No se ingresó ninguna operación"
     else:
         op_pos = x.index(op, 1)
-        return [float(x[:op_pos]), float(x[op_pos+1:])]
+        return [float(strip_inter(x[:op_pos])), float(strip_inter(x[op_pos+1:]))]
 
 
 def main():
@@ -82,9 +92,10 @@ def main():
     elif op == "*":
         print(multiplicar(a,b))
     elif op == "/":
-        print(dividir(a,b))
+        if b == 0:
+            print("No es posible dividir por 0")
+        else: 
+            print(dividir(a,b))
     else:
         print("No se ingresó ninguna operación")
 main()
-
-##  CASO CONTEMPLADO QUE ESTÁ FALLANDO:  - 23 +2
