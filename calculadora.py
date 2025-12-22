@@ -1,7 +1,7 @@
 # Calculadora Versión 1.1
 
-# Inicio: 20 de Diciembre 2025
-# Fin: 
+# Inicio: 20 de Diciembre del 2025
+# Fin: 21 de Diciembre del 2025
 
 # Este programa realiza operaciones matemáticas básicas: suma, resta, multiplicación y división.
 # Funciones actuales: Realiza las operaciones simples.
