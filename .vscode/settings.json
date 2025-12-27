@@ -1,0 +1,4 @@
+{
+    "java.project.sourcePaths": ["domain/src", "presentation"],
+    "java.project.outputPath": "bin"
+}
