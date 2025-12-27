@@ -1,46 +1,73 @@
 /*
-Calculadora
+* Calculadora
 
-Versión: 1.0
-Inicio: 21 de Diciembre del 2025
-Fin:
+* Versión: 1.1
+* Inicio: 21 de Diciembre del 2025
+* Fin:
 
-Este programa realiza operaciones matemáticas básicas: suma, resta, multiplicación y división.
-Funciones actuales:
-Hecho por: Karla
+* Este programa realiza operaciones matemáticas básicas: suma, resta, multiplicación y división.
+* Funciones actuales: Operaciones básicas + porcentaje (está muuuy crudo)
+* Hecho por: Karla
 */
 
 public class Calculadora {
+    
     /*
-    Función para realizar las sumas
+    * Do adds
+    * @param a: a number to work with
+    * @param b: another number to work with
+    * 
+    * @return: number equal to 'a' add 'b'
     */
-    private float sumar(float a, float b){
+    public float add(float a, float b){
         return a+b;
     }
-
+    
     /*
-    Función para realizar las restas
+    * Do subtraction
+    * @param a: a number to work with
+    * @param b: another number to work with
+    * 
+    * @return: number equal to 'a' subtract 'b'
     */
-    private float restar(float a, float b){
+    public float minus(float a, float b){
         return a-b;
     }
 
     /*
-    Función para realizar las multiplicaciones
+    * Do multiplications
+    * @param a: a number to work with
+    * @param b: another number to work with
+    * 
+    * @return: number equal to 'a' times 'b'
     */
-    private float multiplicar(float a, float b){
+    public float times(float a, float b){
         return a*b;
     }
 
     /*
-    Función para realizar las divisiones
+    * Do divisions
+    * @param a: a number to work with
+    * @param b: another number to work with
+    * 
+    * @return: the cocient between 'a' and 'b'
     */
-    private float dividir(float a, float b){
+    public float div(float a, float b){
         return a/b;
     }
     
+    /*
+    * Manage percentages
+    * @param a: number for convertion
+    * 
+    * @return: number digited for 'a' divide by 100
+    */
+    public float percentage(float a){
+        return a / 100;
+    }
+
     public static void main(String[] args) {
-        // Método principal
+        
     }
     
 }
