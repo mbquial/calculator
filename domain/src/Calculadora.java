@@ -11,7 +11,7 @@
 */
 
 public class Calculadora {
-    
+
     /*
     * Do adds
     * @param a: a number to work with
@@ -65,9 +65,4 @@ public class Calculadora {
     public float percentage(float a){
         return a / 100;
     }
-
-    public static void main(String[] args) {
-        
-    }
-    
 }

@@ -1,9 +1,12 @@
-//import domain.src.Calculadora;
 import javax.swing.*;
 import java.awt.*;
 
 public class CalculadoraGUI extends JFrame{
     private int width, height;
+    private String num1, num2, op;
+    private float a, b;
+    
+    private Calculadora calculadora;
     
     private JButton oneButton, twoButton, threeButton, fourButton, fiveButton, sixButton, sevenButton, eightButton, nineButton, zeroButton, dotButton, equalButton, addButton, minusButton, multButton, divButton, parenLeftButton, parenRightButton, percentageButton, acButton;
     private JPanel buttonPanel;
@@ -12,7 +15,7 @@ public class CalculadoraGUI extends JFrame{
 
     public CalculadoraGUI(){
         prepareElements();
-        //prepareActions();
+        prepareActions();
     }
 
     private void prepareElements(){
@@ -26,6 +29,8 @@ public class CalculadoraGUI extends JFrame{
 
         buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(5,4));
+
+        calculadora = new Calculadora();
 
         oneButton = new JButton("1");
         twoButton = new JButton("2");
@@ -82,6 +87,118 @@ public class CalculadoraGUI extends JFrame{
         add(numbersField, BorderLayout.NORTH);
         add(buttonPanel, BorderLayout.CENTER);
     }
+
+    private void prepareActions(){
+        prepareNumbersActions();
+        prepareOperationActions();
+        prepareSpecialActions();
+    }
+
+    private void prepareNumbersActions(){
+        oneButton.addActionListener(e -> {
+            String actualNumber = numbersField.getText();
+            numbersField.setText(actualNumber + "1");
+        });
+
+        twoButton.addActionListener(e -> {
+            String actualNumber = numbersField.getText();
+            numbersField.setText(actualNumber + "2");
+        });
+
+        threeButton.addActionListener(e -> {
+            String actualNumber = numbersField.getText();
+            numbersField.setText(actualNumber + "3");
+        });
+        
+        fourButton.addActionListener(e -> {
+            String actualNumber = numbersField.getText();
+            numbersField.setText(actualNumber + "4");
+        });
+
+        fiveButton.addActionListener(e -> {
+            String actualNumber = numbersField.getText();
+            numbersField.setText(actualNumber + "5");
+        });
+
+        sixButton.addActionListener(e -> {
+            String actualNumber = numbersField.getText();
+            numbersField.setText(actualNumber + "6");
+        });
+
+        sevenButton.addActionListener(e -> {
+            String actualNumber = numbersField.getText();
+            numbersField.setText(actualNumber + "7");
+        });
+
+        eightButton.addActionListener(e -> {
+            String actualNumber = numbersField.getText();
+            numbersField.setText(actualNumber + "8");
+        });
+
+        nineButton.addActionListener(e -> {
+            String actualNumber = numbersField.getText();
+            numbersField.setText(actualNumber + "9");
+        });
+
+        zeroButton.addActionListener(e -> {
+            String actualNumber = numbersField.getText();
+            numbersField.setText(actualNumber + "0");
+        });
+
+        dotButton.addActionListener(e -> {
+            String actualNumber = numbersField.getText();
+            numbersField.setText(actualNumber + ".");
+        });
+    }
+
+    private void prepareSpecialActions(){
+        acButton.addActionListener(e -> numbersField.setText(""));
+
+        equalButton.addActionListener(e -> {
+            num2 = numbersField.getText();
+            b = Float.parseFloat(num2);
+            float partialAns = switch (op) {
+                case "+" -> calculadora.add(a,b);
+                case "-" -> calculadora.minus(a,b);
+                case "*" -> calculadora.times(a,b);
+                case "/" -> calculadora.div(a,b);
+                default -> 0f;
+            };
+            String answer = Float.toString(partialAns);
+            numbersField.setText(answer);
+        });
+    }
+
+    private void prepareOperationActions(){
+        addButton.addActionListener(e -> {
+            num1 = numbersField.getText();
+            a = Float.parseFloat(num1);
+            op = "+";
+            numbersField.setText("");
+        });
+
+        minusButton.addActionListener(e -> {
+            num1 = numbersField.getText();
+            a = Float.parseFloat(num1);
+            op = "-";
+            numbersField.setText("");
+        });
+
+        multButton.addActionListener(e -> {
+            num1 = numbersField.getText();
+            a = Float.parseFloat(num1);
+            op = "*";
+            numbersField.setText("");
+        });
+
+        divButton.addActionListener(e -> {
+            num1 = numbersField.getText();
+            a = Float.parseFloat(num1);
+            op = "/";
+            numbersField.setText("");
+        });
+    }
+
     public static void main(String[] args){
         CalculadoraGUI gui = new CalculadoraGUI();
         gui.setVisible(true);
