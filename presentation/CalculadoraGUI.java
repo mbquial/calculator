@@ -197,6 +197,14 @@ public class CalculadoraGUI extends JFrame{
             op = "/";
             numbersField.setText("");
         });
+
+        percentageButton.addActionListener(e -> {
+            num1 = numbersField.getText();
+            a = Float.parseFloat(num1);
+            float partialAns = calculadora.percentage(a);
+            String answer = Float.toString(partialAns);
+            numbersField.setText(answer);
+        });
     }
 
     public static void main(String[] args){
