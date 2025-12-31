@@ -147,7 +147,13 @@ public class CalculadoraGUI extends JFrame{
 
         dotButton.addActionListener(e -> {
             String actualNumber = numbersField.getText();
-            numbersField.setText(actualNumber + ".");
+            if (actualNumber.isEmpty()){
+                numbersField.setText("0.");
+            } else if (!actualNumber.substring(actualNumber.length() - 1).equals(".") && !actualNumber.contains(".")) {
+                numbersField.setText(actualNumber + ".");
+            } else {
+                return;
+            }
         });
     }
 
