@@ -152,7 +152,11 @@ public class CalculadoraGUI extends JFrame{
     }
 
     private void prepareSpecialActions(){
-        acButton.addActionListener(e -> numbersField.setText(""));
+        acButton.addActionListener(e -> {
+            numbersField.setText("");
+            num1 = "";
+            num2 = "";
+        });
 
         equalButton.addActionListener(e -> {
             num2 = numbersField.getText();
@@ -167,6 +171,18 @@ public class CalculadoraGUI extends JFrame{
             String answer = Float.toString(partialAns);
             numbersField.setText(answer);
         });
+ 
+        // Aquí falta tener en cuenta que si se abre paréntesis, se cierre
+        //parenLeftButton.addActionListener(e -> {
+            //String actualNumber = numbersField.getText();
+            //numbersField.setText(actualNumber + "(");
+        //});
+        
+        // Aquí falta tener en cuenta que si se cierra paréntesis, debo tener uno de inicio
+        //parenRightButton.addActionListener(e -> {
+            //String actualNumber = numbersField.getText();
+            //numbersField.setText(actualNumber + ")");
+        //});
     }
 
     private void prepareOperationActions(){
