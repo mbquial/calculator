@@ -195,9 +195,13 @@ public class CalculadoraGUI extends JFrame{
 
         minusButton.addActionListener(e -> {
             num1 = numbersField.getText();
-            a = Float.parseFloat(num1);
-            op = "-";
-            numbersField.setText("");
+            if (num1.isEmpty()){
+                numbersField.setText("-");
+            } else {
+                a = Float.parseFloat(num1);
+                op = "-";
+                numbersField.setText("");
+            }
         });
 
         multButton.addActionListener(e -> {

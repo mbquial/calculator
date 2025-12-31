@@ -6,7 +6,7 @@
 * Fin:
 
 * Este programa realiza operaciones matemáticas básicas: suma, resta, multiplicación y división.
-* Funciones actuales: Operaciones básicas + porcentaje (está muuuy crudo)
+* Funciones actuales: Operaciones básicas + porcentaje.
 * Hecho por: Karla
 */
 
@@ -51,8 +51,13 @@ public class Calculadora {
     * @param b: another number to work with
     * 
     * @return: the cocient between 'a' and 'b'
+    * 
+    * @throw: AritmeticException when divide by 0 (when 'b' = 0)
     */
     public float div(float a, float b){
+        if (b == 0){
+            throw new ArithmeticException("División por cero");
+        }
         return a/b;
     }
     
@@ -61,8 +66,13 @@ public class Calculadora {
     * @param a: number for convertion
     * 
     * @return: number digited for 'a' divide by 100
+    * 
+    * @throw: AritmeticException when 'a' is negative
     */
     public float percentage(float a){
+        if (a < 0){
+            throw new ArithmeticException("Porcentaje negativo");
+        }
         return a / 100;
     }
 }
