@@ -159,17 +159,21 @@ public class CalculadoraGUI extends JFrame{
         });
 
         equalButton.addActionListener(e -> {
-            num2 = numbersField.getText();
-            b = Float.parseFloat(num2);
-            float partialAns = switch (op) {
-                case "+" -> calculadora.add(a,b);
-                case "-" -> calculadora.minus(a,b);
-                case "*" -> calculadora.times(a,b);
-                case "/" -> calculadora.div(a,b);
-                default -> 0f;
-            };
-            String answer = Float.toString(partialAns);
-            numbersField.setText(answer);
+            try {
+                num2 = numbersField.getText();
+                b = Float.parseFloat(num2);
+                float partialAns = switch (op) {
+                    case "+" -> calculadora.add(a,b);
+                    case "-" -> calculadora.minus(a,b);
+                    case "*" -> calculadora.times(a,b);
+                    case "/" -> calculadora.div(a,b);
+                    default -> 0f;
+                };
+                String answer = Float.toString(partialAns);
+                numbersField.setText(answer);
+            } catch (ArithmeticException ex) {
+                numbersField.setText("Error: " + ex.getMessage());
+            }
         });
  
         // Aquí falta tener en cuenta que si se abre paréntesis, se cierre
@@ -219,11 +223,15 @@ public class CalculadoraGUI extends JFrame{
         });
 
         percentageButton.addActionListener(e -> {
-            num1 = numbersField.getText();
-            a = Float.parseFloat(num1);
-            float partialAns = calculadora.percentage(a);
-            String answer = Float.toString(partialAns);
-            numbersField.setText(answer);
+            try {
+                num1 = numbersField.getText();
+                a = Float.parseFloat(num1);
+                float partialAns = calculadora.percentage(a);
+                String answer = Float.toString(partialAns);
+                numbersField.setText(answer);
+            } catch (ArithmeticException ex) {
+                numbersField.setText("Error: " + ex.getMessage());
+            }
         });
     }
 

@@ -56,7 +56,7 @@ public class Calculadora {
     */
     public float div(float a, float b){
         if (b == 0){
-            throw new ArithmeticException("División por cero");
+            throw new ArithmeticException("División por 0");
         }
         return a/b;
     }
@@ -71,7 +71,7 @@ public class Calculadora {
     */
     public float percentage(float a){
         if (a < 0){
-            throw new ArithmeticException("Porcentaje negativo");
+            throw new ArithmeticException("% negativo");
         }
         return a / 100;
     }
